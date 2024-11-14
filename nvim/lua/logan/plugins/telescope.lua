@@ -25,6 +25,8 @@ return {
 				layout_config = {
 					horizontal = {
 						prompt_position = "top",
+						width = DefaultWindowDimentions.width,
+						height = DefaultWindowDimentions.width,
 					},
 				},
 				sorting_strategy = "ascending",

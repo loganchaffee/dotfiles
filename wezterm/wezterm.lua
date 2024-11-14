@@ -22,9 +22,9 @@ local colors = {
 config.colors = {
 	cursor_bg = "#d3d3d3",
 	cursor_border = "#d3d3d3",
-	cursor_fg = "#1e1e1e",
+	cursor_fg = "#1d1d1d",
 	foreground = "#ffffff",
-	background = "#1e1e1e",
+	background = "#1d1d1d",
 	ansi = colors,
 }
 
