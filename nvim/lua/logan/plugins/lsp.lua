@@ -130,9 +130,21 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				"typescript-language-server",
+				"html-lsp",
+				"tailwindcss-language-server",
+				"pyright",
 				"lua_ls",
 				"phpactor",
+				"php-cs-fixer",
 				"templ",
+				"clangd",
+				"css-lsp",
+				"cssls",
+				"docker-compose-language-service",
+				"dockerfile-language-server",
+				"gopls",
+				"lua-language-server",
 			},
 			handlers = {
 				function(server_name)

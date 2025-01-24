@@ -11,7 +11,7 @@ return {
 				return vim.fn.executable("make") == 1
 			end,
 		},
-		{ "nvim-telescope/telescope-ui-select.nvim" },
+		-- { "nvim-telescope/telescope-ui-select.nvim" },
 		{
 			"nvim-tree/nvim-web-devicons",
 			enabled = vim.g.have_nerd_font,
@@ -31,21 +31,22 @@ return {
 				},
 				sorting_strategy = "ascending",
 			},
-			extensions = {
-				["ui-select"] = {
-					require("telescope.themes").get_dropdown({
-						prompt_position = "top",
-					}),
-				},
-			},
+			-- extensions = {
+			-- 	["ui-select"] = {
+			-- 		require("telescope.themes").get_dropdown({
+			-- 			prompt_position = "top",
+			-- 		}),
+			-- 	},
+			-- },
 		})
 
 		-- Enable telescope extensions, if they are installed
 		pcall(require("telescope").load_extension, "fzf")
-		pcall(require("telescope").load_extension, "ui-select")
+		-- pcall(require("telescope").load_extension, "ui-select")
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
+
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -58,24 +59,34 @@ return {
 
 		-- Example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>s.", function()
-			-- Pass additional configuration to telescope to change theme, layout, etc.
-			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				previewer = false,
-			}))
+			builtin.current_buffer_fuzzy_find()
 		end, { desc = "[.] Fuzzily search in current buffer" })
-
-		-- Also possible to pass additional configuration options.
-		--  See `:help telescope.builtin.live_grep()` for information about particular keys
-		vim.keymap.set("n", "<leader>s/", function()
-			builtin.live_grep({
-				grep_open_files = true,
-				prompt_title = "Live Grep in Open Files",
-			})
-		end, { desc = "[S]earch [/] in Open Files" })
 
 		-- Shortcut for searching neovim configuration files
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
+
+		-- Automatically focus any Telescope window when opened
+		local focus_telescope_window = function()
+			local win_id = vim.fn.win_getid() -- Get the current window ID
+			vim.api.nvim_set_current_win(win_id) -- Set focus to that window
+		end
+
+		-- Focus the window on these Telescope events
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "TelescopePromptOpen",
+			callback = focus_telescope_window,
+		})
+
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "TelescopePreviewerOpen",
+			callback = focus_telescope_window,
+		})
+
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "TelescopeUISelectOpen",
+			callback = focus_telescope_window,
+		})
 	end,
 }
