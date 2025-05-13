@@ -20,8 +20,8 @@ require("lazy").setup({
 		border = "rounded",
 		title = "Lazy",
 		size = {
-			width = 0.8,
-			height = 0.8,
+			width = WindowDimentions.width,
+			height = WindowDimentions.height,
 		},
 	},
 })

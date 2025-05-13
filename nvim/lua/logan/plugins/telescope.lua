@@ -4,6 +4,11 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		{ "nvim-telescope/telescope-ui-select.nvim" },
+		{
+			"nvim-tree/nvim-web-devicons",
+			enabled = vim.g.have_nerd_font,
+		},
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -11,23 +16,23 @@ return {
 				return vim.fn.executable("make") == 1
 			end,
 		},
-		{ "nvim-telescope/telescope-ui-select.nvim" },
-		{
-			"nvim-tree/nvim-web-devicons",
-			enabled = vim.g.have_nerd_font,
-		},
 	},
 	config = function()
 		require("telescope").setup({
 			defaults = {
+				hidden = true,
 				prompt_prefix = "   ",
+				sorting_strategy = "ascending",
 				layout_strategy = "horizontal",
+				file_ignore_patterns = { "node_modules", ".git" },
 				layout_config = {
 					horizontal = {
+						width = WindowDimentions.width + 2,
+						height = WindowDimentions.height + 2,
+						preview_width = 0.5,
 						prompt_position = "top",
 					},
 				},
-				sorting_strategy = "ascending",
 			},
 			extensions = {
 				["ui-select"] = {
@@ -50,7 +55,7 @@ return {
 		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 		-- vim.keymap.set("n", "<leader>st", builtin.grep_string, { desc = "[S]earch for [T]ext" })
 		vim.keymap.set("n", "<leader>st", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-		-- vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
