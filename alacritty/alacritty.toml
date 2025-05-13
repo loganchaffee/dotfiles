@@ -1,46 +1,45 @@
 [env]
-TERM                  = "xterm-256color"
+TERM = "xterm-256color"
 
 [window]
-padding               = { x = 5, y = 5 }
+padding = { x = 5, y = 5 }
 
 [font]
-normal                = { family = "Hack Nerd Font Propo", style = "Regular" }
-size                  = 12
-glyph_offset          = { x = 0, y = 0 }
+normal = { family = "Hack Nerd Font Propo", style = "Regular" }
+size = 15
+glyph_offset = { x = 0, y = 0 }
 
 [colors.primary]
-background            = "#1e1e1e"
-foreground            = "#ffffff"
-dim_foreground        = "#CDD6F4"
-bright_foreground     = "#CDD6F4"
+background = "#1e1e1e"
+foreground = "#ffffff"
+dim_foreground = "#CDD6F4"
+bright_foreground = "#CDD6F4"
 
 [colors.cursor]
-text                  = "#1E1E2E"
-cursor                = "#F5E0DC"
+text = "#1E1E2E"
+cursor = "#F5E0DC"
 
 [colors.footer_bar]
-foreground            = "#1E1E2E"
-background            = "#A6ADC8"
+foreground = "#1E1E2E"
+background = "#A6ADC8"
 
 [colors.selection]
-text                  = "#1E1E2E"
-background            = "#F5E0DC"
+text = "#1E1E2E"
+background = "#F5E0DC"
 
 [colors.normal]
-black   = "#000000"
-red     = "#e46d63"
-green   = "#58c18f"
+black = "#000000"
+red = "#e46d63"
+green = "#58c18f"
 yellow  = "#e9e64d"
-blue    = "#77abd9"
+blue = "#77abd9"
 magenta = "#d38dd9"
-cyan    = "#60c1de"
-white   = "#ffffff"
+cyan = "#60c1de"
+white = "#ffffff"
 
 [keyboard]
 bindings = [
-  { key = "V",        mods = "Control", action = "Paste" },
-  { key = "C",        mods = "Control", action = "Copy" },
+  { key = "V", mods = "Control", action = "Paste" },
+  { key = "C", mods = "Control", action = "Copy" },
 ]
-
 
