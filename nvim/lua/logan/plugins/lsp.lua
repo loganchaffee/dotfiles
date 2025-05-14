@@ -3,26 +3,32 @@ return {
 	dependencies = {
 		"mason-org/mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/nvim-cmp",
+
+		-- Better Typescript Support
+		"pmizio/typescript-tools.nvim",
+		"nvim-lua/plenary.nvim",
+		"neovim/nvim-lspconfig",
 	},
 	config = function()
-		local map = function(keys, func, desc)
-			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-		end
-
 		vim.api.nvim_create_autocmd("LspAttach", {
-			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 			callback = function(event)
-				-- map("gd", vim.lsp.buf.definition())
-				-- map("gi", vim.lsp.buf.implementation())
-				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-				map("<leader>>", vim.lsp.buf.code_action, "[C]ode [A]ction")
-				map("K", vim.lsp.buf.hover, "Hover Documentation")
-				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+				local map = function(keys, func)
+					vim.keymap.set("n", keys, func)
+				end
+
+				map("K", vim.lsp.buf.hover)
+				map("gd", vim.lsp.buf.defintion)
+				map("gD", vim.lsp.buf.declaration)
+				map("<leader>rn", vim.lsp.buf.rename)
+				map("<leader>>", vim.lsp.buf.code_action)
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+				if client:supports_method("textDocument/completion") then
+					vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+				end
+
 				if client and client.server_capabilities.documentHighlightProvider then
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 						buffer = event.buf,
@@ -37,23 +43,6 @@ return {
 			end,
 		})
 
-		-- Configure a server via `vim.lsp.config()` or `{after/}lsp/lua_ls.lua`
-		vim.lsp.config("lua_ls", {
-			settings = {
-				Lua = {
-					runtime = {
-						version = "LuaJIT",
-					},
-					diagnostics = {
-						globals = {
-							"vim",
-							"require",
-						},
-					},
-				},
-			},
-		})
-
 		require("mason").setup({
 			ui = {
 				border = "rounded",
@@ -62,6 +51,6 @@ return {
 			},
 		})
 
-		require("mason-lspconfig").setup() -- Note: `nvim-lspconfig` needs to be in 'runtimepath' by the time you setup
+		require("mason-lspconfig").setup()
 	end,
 }
