@@ -19,3 +19,5 @@ else
 end
 
 require("logan")
+
+vim.o.winborder = "rounded"
