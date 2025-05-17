@@ -6,6 +6,8 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
+		vim.opt.fillchars:append({ vert = " " })
+
 		require("nvim-tree").setup({
 			update_focused_file = {
 				enable = true,
