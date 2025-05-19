@@ -20,18 +20,8 @@ end
 
 vim.o.winborder = "rounded"
 
--- Hacky fix for telescop winborder issue
-vim.api.nvim_create_autocmd("User", {
-	pattern = "TelescopeFindPre",
-	callback = function()
-		vim.opt_local.winborder = "none"
-		vim.api.nvim_create_autocmd("WinLeave", {
-			once = true,
-			callback = function()
-				vim.opt_local.winborder = "rounded"
-			end,
-		})
-	end,
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	max_width = 100,
 })
 
 require("logan")
