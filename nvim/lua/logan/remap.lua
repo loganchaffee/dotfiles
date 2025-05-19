@@ -14,7 +14,7 @@ vim.keymap.set("n", "<leader>L", vim.cmd.Lazy)
 vim.keymap.set("n", "<leader>M", vim.cmd.Mason)
 
 -- Nvim Tree
-vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle)
+-- vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle)
 
 -- Linting
 -- Toggle lint warning message in float window
