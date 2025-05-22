@@ -1,13 +1,3 @@
--- return {
--- 	"lunarvim/darkplus.nvim",
--- 	priority = 1000,
--- 	lazy = false,
--- 	name = "darkplus",
--- 	config = function()
--- 		vim.cmd("colorscheme darkplus")
--- 	end,
--- }
-
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",

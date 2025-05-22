@@ -1,13 +1,37 @@
+-- vim.api.nvim_set_keymap("i", "<C-e>", '<Cmd>lua require("luasnip").abort()<CR><Esc>', { noremap = true, silent = true })
+
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		{ "L3MON4D3/LuaSnip", version = "v2.*" },
+	},
 	version = "1.*",
 	opts = {
+		appearance = {
+			nerd_font_variant = "mono",
+		},
+
+		completion = {
+			documentation = { auto_show = true },
+		},
+
+		snippets = {
+			preset = "luasnip",
+		},
+
+		sources = {
+			min_keyword_length = 3,
+			default = { "lsp", "path", "snippets", "buffer" },
+		},
+
+		fuzzy = { implementation = "prefer_rust_with_warning" },
+
 		keymap = {
 			preset = "default",
-			["<S-Tab>"] = { "select_prev", "fallback" },
-			["<Tab>"] = { "select_next", "fallback" },
-			["<CR>"] = {
+			["<c-k>"] = { "select_prev", "fallback" },
+			["<c-j>"] = { "select_next", "fallback" },
+			["<Tab>"] = {
 				function(cmp)
 					if cmp.snippet_active() then
 						return cmp.accept()
@@ -19,19 +43,6 @@ return {
 				"fallback",
 			},
 		},
-
-		appearance = {
-			nerd_font_variant = "mono",
-		},
-
-		completion = { documentation = { auto_show = true } },
-
-		sources = {
-			min_keyword_length = 5,
-			default = { "lsp", "path", "snippets", "buffer" },
-		},
-
-		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
 	opts_extend = { "sources.default" },
 }

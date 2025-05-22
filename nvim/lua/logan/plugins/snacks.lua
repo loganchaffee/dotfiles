@@ -21,7 +21,6 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		bigfile = { enabled = false },
 		input = { enabled = false },
 		notifier = { enabled = false },
 		quickfile = { enabled = false },
@@ -30,8 +29,15 @@ return {
 		statuscolumn = { enabled = false },
 		words = { enabled = false },
 
+		bigfile = { enabled = true },
+
 		indent = {
-			char = "▏",
+			indent = {
+				char = "▏",
+			},
+			scope = {
+				char = "▏",
+			},
 			animate = {
 				enabled = false,
 			},
@@ -48,6 +54,8 @@ return {
 			sources = {
 				explorer = {
 					auto_close = true,
+					hidden = true,
+					ignored = true,
 				},
 			},
 		},
@@ -106,7 +114,7 @@ return {
 
 		-- Lazygit
 		{
-			"<leader>lg",
+			"<leader>gl",
 			function()
 				Snacks.lazygit()
 			end,

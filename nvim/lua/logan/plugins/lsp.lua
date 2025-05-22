@@ -11,6 +11,7 @@ return {
 
 		-- Snippets (see ./snippets.lua for configuration)
 		"saghen/blink.cmp",
+		"rafamadriz/friendly-snippets",
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -41,27 +42,29 @@ return {
 			end,
 		})
 
-		local lspconfig = require("lspconfig")
-
-		local capabilities = require("blink.cmp").get_lsp_capabilities()
+		-- local lspconfig = require("lspconfig")
+		--
+		-- local capabilities = require("blink.cmp").get_lsp_capabilities()
+		--
+		-- lspconfig["*"].setup({ capabilities = capabilities })
 
 		-- Lua
-		lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-					runtime = {
-						version = "LuaJIT",
-					},
-					diagnostics = {
-						globals = { "vim" },
-					},
-				},
-			},
-		})
-
-		-- JavaScript / TypeScript
-		lspconfig.ts_ls.setup({ capabilities = capabilities })
+		-- lspconfig["lua_ls"].setup({
+		-- 	capabilities = capabilities,
+		-- 	settings = {
+		-- 		Lua = {
+		-- 			runtime = {
+		-- 				version = "LuaJIT",
+		-- 			},
+		-- 			diagnostics = {
+		-- 				globals = { "vim" },
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
+		--
+		-- -- JavaScript / TypeScript
+		-- lspconfig.ts_ls.setup({ capabilities = capabilities })
 
 		-- Manage language server installations
 		require("mason").setup({
