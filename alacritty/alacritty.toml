@@ -1,17 +1,16 @@
-general.import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
-]
+general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 
 [colors.primary]
-background = "#1e1e1e"
+# background = "#1e1e1e"
 
 [env]
 TERM = "xterm-256color"
 
 [window]
-padding = { x = 5, y = 5 }
+padding = { x = 5, y = 30 }
+decorations = "transparent"
 
 [font]
 size = 16
-normal = { family = "Hack Nerd Font Propo", style = "Regular" }
+normal = { family = "Hack Nerd Font", style = "Regular" }
 glyph_offset = { x = 0, y = 0 }
