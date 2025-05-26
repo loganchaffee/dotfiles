@@ -14,7 +14,7 @@ return {
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
 				"javascript",
-				"tsx",
+        "tsx",
 				"typescript",
 				"css",
 				"scss",
@@ -26,13 +26,10 @@ return {
 				"python",
 				"java",
 			},
-			-- Autoinstall languages that are not installed
-			auto_install = true,
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = { "ruby" },
-			},
-			indent = { enable = true, disable = { "ruby" } },
+      ignore_install = {},
+      modules = {},
+			auto_install = true, -- Autoinstall languages that are not installed
+      sync_install = false
 		})
 	end,
 }

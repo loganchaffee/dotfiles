@@ -1,10 +1,42 @@
--- vim.api.nvim_set_keymap("i", "<C-e>", '<Cmd>lua require("luasnip").abort()<CR><Esc>', { noremap = true, silent = true })
-
 return {
 	"saghen/blink.cmp",
 	dependencies = {
-		"rafamadriz/friendly-snippets",
-		{ "L3MON4D3/LuaSnip", version = "v2.*" },
+		{
+			"L3MON4D3/LuaSnip",
+			build = "make install_jsregexp",
+			dependencies = {
+				{
+					"rafamadriz/friendly-snippets",
+					config = function()
+						require("luasnip.loaders.from_vscode").lazy_load()
+					end,
+				},
+			},
+			config = function()
+				local luasnip = require("luasnip")
+
+				-- When in a snippet "session", exiting to normal modal cancels the session
+				-- so that hitting tab doesn't take you back to the placeholders
+				vim.api.nvim_create_autocmd("ModeChanged", {
+					pattern = "*",
+					callback = function()
+						if
+							(
+                ---@diagnostic disable-next-line: undefined-field
+								(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
+								or
+                ---@diagnostic disable-next-line: undefined-field
+                (vim.v.event.old_mode == "i" and vim.v.event.new_mode == "n")
+							)
+							and luasnip.session.current_nodes[vim.api.nvim_get_current_buf()]
+							and not luasnip.session.jump_active
+						then
+							luasnip.unlink_current()
+						end
+					end,
+				})
+			end,
+		},
 	},
 	version = "1.*",
 	opts = {

@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.opt.number = true
-vim.wo.relativenumber = false
+vim.opt.clipboard = "unnamedplus" -- Yank to clipboard
+vim.opt.relativenumber = true
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 0 -- (0 means "Use the tabstop value")

@@ -7,5 +7,8 @@ return {
 			date_format = "%r",
 			message_when_not_committed = "  You • <date> • Uncommited",
 		})
+
+		-- Toggle git blame
+		vim.keymap.set("n", "<leader>gb", vim.cmd.GitBlameToggle, { desc = "Git line blame" })
 	end,
 }
