@@ -27,7 +27,6 @@ return {
 		scope = { enabled = false },
 		scroll = { enabled = false },
 		statuscolumn = { enabled = false },
-		words = { enabled = false },
 
 		bigfile = { enabled = true },
 
@@ -89,6 +88,13 @@ return {
 		},
 		{
 			"<leader>sf",
+			function()
+				Snacks.picker.files()
+			end,
+			desc = "Find Files",
+		},
+		{
+			"<leader>sr",
 			function()
 				Snacks.picker.files()
 			end,

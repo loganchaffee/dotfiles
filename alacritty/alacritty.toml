@@ -12,5 +12,5 @@ decorations = "transparent"
 
 [font]
 size = 16
-normal = { family = "Hack Nerd Font", style = "Regular" }
+normal = { family = "Hack Nerd Font Propo", style = "Regular" }
 glyph_offset = { x = 0, y = 0 }

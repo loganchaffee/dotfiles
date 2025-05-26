@@ -1,0 +1,16 @@
+{
+  "workspace": {
+    "diagnostics": {
+      "globals": ["vim"]
+    },
+    "library": [
+      "/opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime", // Neovim runtime files
+      "~/.local/share/nvim/lazy", // Lazy.nvim plugins
+      "~/.config/nvim/lua"            // Your own config
+    ],
+    "checkThirdParty": false
+  },
+  "runtime": {
+    "version": "LuaJIT"
+  }
+}
