@@ -1,8 +1,4 @@
 general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
-# general.import = ["~/.config/alacritty/catppuccin-latte.toml"]
-
-[colors.primary]
-background = "#1e1e1e"
 
 [env]
 TERM = "xterm-256color"
