@@ -1,14 +1,14 @@
 general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+# general.import = ["~/.config/alacritty/catppuccin-latte.toml"]
 
 [colors.primary]
-# background = "#1e1e1e"
+background = "#1e1e1e"
 
 [env]
 TERM = "xterm-256color"
 
 [window]
-padding = { x = 5, y = 30 }
-decorations = "transparent"
+padding = { x = 5, y = 5 }
 
 [font]
 size = 16

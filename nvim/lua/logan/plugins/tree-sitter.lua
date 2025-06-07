@@ -1,11 +1,3 @@
--- Extra extensions
-vim.filetype.add({
-	extension = {
-		templ = "templ",
-		jsx = "javascriptreact",
-	},
-})
-
 -- Highlight, edit, and navigate code
 return {
 	"nvim-treesitter/nvim-treesitter",
@@ -28,8 +20,12 @@ return {
 			},
       ignore_install = {},
       modules = {},
-			auto_install = true, -- Autoinstall languages that are not installed
-      sync_install = false
+			auto_install = true,
+      sync_install = false,
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      }
 		})
 	end,
 }
