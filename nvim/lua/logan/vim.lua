@@ -15,3 +15,5 @@ vim.o.signcolumn = "yes:1"
 -- Spell Check
 vim.opt.spell = true
 vim.opt.spelllang = { "en_us" }
+
+-- Test comment
