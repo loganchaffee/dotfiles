@@ -37,8 +37,8 @@ return {
 		-- Manage language server installations
 		require("mason").setup({
 			ui = {
-				width = WindowDimentions.width,
-				height = WindowDimentions.height,
+				width = WindowSettings.width,
+				height = WindowSettings.height,
 			},
 		})
 
@@ -46,15 +46,11 @@ return {
 		require("mason-lspconfig").setup()
 
 		-- Open Mason window
-		vim.keymap.set("n", "<leader>M", vim.cmd.Mason,  { desc = "Mason" })
+		vim.keymap.set("n", "<leader>M", vim.cmd.Mason, { desc = "Mason" })
 
 		-- Toggle diagnostic message in float window
-    vim.keymap.set(
-      "n",
-      "<leader>l",
-      function() vim.diagnostic.open_float(nil, { scope = "line" }) end,
-      { desc = "Open diagnostics message" }
-    )
-
+		vim.keymap.set("n", "<leader>l", function()
+			vim.diagnostic.open_float(nil, { scope = "line" })
+		end, { desc = "Open diagnostics message" })
 	end,
 }

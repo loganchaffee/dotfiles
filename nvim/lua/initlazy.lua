@@ -15,14 +15,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{ import = "logan.plugins" },
+		{ import = "plugins" },
 	},
 	ui = {
-		border = "rounded",
+		border = WindowSettings.border,
 		title = "Lazy",
 		size = {
-			width = WindowDimentions.width,
-			height = WindowDimentions.height,
+			width = WindowSettings.width,
+			height = WindowSettings.height,
 		},
 	},
 })

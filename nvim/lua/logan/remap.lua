@@ -1,5 +1,0 @@
-vim.keymap.set("n", "<leader>w", vim.cmd.w, { desc = "Write file" })
-vim.keymap.set("", "<leader>bn", vim.cmd.bnext, { desc = "Next buffer" })
-vim.keymap.set("", "<leader>bb", vim.cmd.bprev, { desc = "Previous buffer" })
-vim.keymap.set("", "<leader>c", vim.cmd.bw, { desc = "Close window" })
-vim.keymap.set("", "<leader>h", vim.cmd.nohlsearch, { desc = "Clear highlight" })
