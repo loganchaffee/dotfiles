@@ -13,6 +13,7 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.spell = true
 vim.opt.spelllang = { "en_us" }
 vim.opt.winborder = "rounded"
+vim.opt.undofile = true
 
 -- key maps
 vim.keymap.set("n", "<leader>w", vim.cmd.w, { desc = "Write file" })

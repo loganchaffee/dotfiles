@@ -1,2 +1,2 @@
 require("settings")
-require("initlazy")
+require("lsp")
