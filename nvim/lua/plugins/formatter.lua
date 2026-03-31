@@ -1,4 +1,3 @@
--- return {}
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
@@ -16,12 +15,11 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				-- graphql = { "prettier" },
-        graphql = {},
+				graphql = {},
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				c = { "clang-format" },
 				go = { "goimports", "gofmt" },
-
 				scala = {},
 			},
 			format_on_save = {
