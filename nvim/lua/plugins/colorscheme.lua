@@ -18,4 +18,5 @@ vim.cmd([[
 
   highlight NormalFloat guibg=NONE ctermbg=NONE
   highlight FloatBorder guibg=NONE ctermbg=NONE
+  highlight FloatTitle guibg=NONE ctermbg=NONE
 ]])
