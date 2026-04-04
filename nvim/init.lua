@@ -1,5 +1,4 @@
 require("settings")
-require("lsp")
 
 -- Require all plugins
 for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lua/plugins")) do
