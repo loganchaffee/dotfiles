@@ -1,3 +1,11 @@
+-- This file is an example of how to set up LSP manually 
+-- without the LSP Config and Mason plugins
+--
+-- This file:
+-- 1. Enables the lua-language-server with Neovim's builtin LSP API
+-- 2. Creates an auto command that runs when the on the LspAttach event
+-- 3. Sets up key maps for LSP functions
+
 vim.lsp.enable('lua_ls')
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -21,6 +29,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end
 })
+
 
 vim.diagnostic.config({
   virtual_text = false,
