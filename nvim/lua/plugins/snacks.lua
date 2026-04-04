@@ -19,7 +19,9 @@ vim.pack.add({
 	"https://github.com/folke/snacks.nvim.git",
 })
 
-require("snacks").setup({
+local snacks = require("snacks")
+
+snacks.setup({
 	input = { enabled = false },
 	notifier = { enabled = false },
 	quickfile = { enabled = false },
@@ -52,36 +54,31 @@ require("snacks").setup({
 
 -- Explorer
 vim.keymap.set("n", "<leader>e", function()
-	require("snacks").explorer()
+	snacks.explorer()
 end, { desc = "File Explorer" })
 
 -- Search
 vim.keymap.set("n", "<leader>st", function()
-	require("snacks").picker.grep()
+	snacks.picker.grep()
 end, { desc = "Grep" })
 
 vim.keymap.set("n", "<leader>sb", function()
-	require("snacks").picker.buffers()
+	snacks.picker.buffers()
 end, { desc = "Buffers" })
 
 vim.keymap.set("n", "<leader>sf", function()
-	require("snacks").picker.files()
+	snacks.picker.files()
 end, { desc = "Find Files" })
 
 vim.keymap.set("n", "<leader>sr", function()
-	require("snacks").picker.files()
+	snacks.picker.files()
 end, { desc = "Find Files" })
 
 -- LSP
 vim.keymap.set("n", "gd", function()
-	require("snacks").picker.lsp_definitions()
+	snacks.picker.lsp_definitions()
 end, { desc = "Goto Definition" })
 
 vim.keymap.set("n", "gr", function()
-	require("snacks").picker.lsp_references()
+	snacks.picker.lsp_references()
 end, { desc = "References", nowait = true })
-
--- Lazygit
-vim.keymap.set("n", "<leader>gl", function()
-	require("snacks").lazygit()
-end, { desc = "Lazygit" })
