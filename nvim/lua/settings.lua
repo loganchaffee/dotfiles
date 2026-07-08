@@ -15,6 +15,13 @@ vim.opt.spelllang = { "en_us" }
 vim.opt.winborder = "rounded"
 vim.opt.undofile = true
 
+-- Enable autoread and set up checking triggers
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = "*",
+})
+
 -- key maps
 vim.keymap.set("n", "<leader>w", vim.cmd.w, { desc = "Write file" })
 vim.keymap.set("", "<leader>bn", vim.cmd.bnext, { desc = "Next buffer" })
