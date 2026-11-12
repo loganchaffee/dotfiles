@@ -1,0 +1,17 @@
+*
+
+# Allow the gitignore
+!.gitignore
+
+# Allow selected directories
+!ghostty/
+!ghostty/**
+
+!tmux/
+!tmux/**
+tmux/plugins
+tmux/plugins/**
+
+!nvim/
+!nvim/**
+
